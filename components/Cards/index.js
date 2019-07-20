@@ -45,10 +45,9 @@ class Cards {
             this.createCard();
 
             this.createHeadline(this.__headline);
-    
-            this.createImage(this.__image);
-    
-            this.createAuthor(this.__name);
+
+            this.createAuthor(this.__name, this.__image);
+
             }
         }
     }
@@ -58,24 +57,26 @@ class Cards {
         this.__container.appendChild(this.__card);
     }
     createHeadline(_hl) {
-        this.__headline = document.createElement('div');
+        this.__headline = document.createElement('h1');
         this.__headline.classList.add('headline');
         this.__headline.innerHTML = _hl;
         this.__card.appendChild(this.__headline);
     }
-    createImage(_src) {
+    createAuthor(_author, _src) {
+        this.__author = document.createElement('div');
+        this.__author.classList.add('author');
         this.__img_container = document.createElement('div');
         this.__img_container.classList.add('img-container');
-        this.__card.appendChild(this.__img_container);
-
+        this.__author.appendChild(this.__img_container);
+        console.log(this.__author);
+        
         this.__img = document.createElement('img');
         this.__img.src = _src;
         this.__img_container.appendChild(this.__img);
 
-    }
-    createAuthor(_author) {
-        this.__author = document.createElement('span');
-        this.__author.innerHTML = _author;
+        this.__author_txt = document.createElement('span');
+        this.__author_txt.innerHTML = _author;
+        this.__author.appendChild(this.__author_txt);
         this.__card.appendChild(this.__author);
     }
 }
