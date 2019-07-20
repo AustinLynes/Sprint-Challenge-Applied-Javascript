@@ -7,3 +7,28 @@
 //
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
+
+axios.get("https://lambda-times-backend.herokuapp.com/topics")
+    .then((_response)=>{
+        let tabs = new Tabs(_response);
+
+    })
+    .catch((_err)=>{
+        console.log("DATA ERROR:: CANNOT SYNC WITH SERVER ::" + _err);
+    })
+
+class Tabs{
+    constructor(_response){
+        this.__data = _response.data;
+        this.__topics = this.__data.topics;
+        this.__container = document.querySelector('.topics');
+
+        for(let i = 0; i< this.__topics.length; i++){
+            this.__tab =  document.createElement('div');
+            this.__tab.classList.add('tab');
+            this.__tab.innerHTML = this.__topics[i];
+            this.__container.appendChild(this.__tab);
+        }
+    }
+}
+
