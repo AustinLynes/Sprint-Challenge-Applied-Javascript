@@ -29,6 +29,8 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager
 
 1. What is the DOM?
+    
+    it is an interface we use to manipulate webpages at runtime
 
 2. What is an event?
 
